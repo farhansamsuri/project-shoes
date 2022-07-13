@@ -35,7 +35,7 @@ class UserController {
 		const {email, pwd} = req.body;
 		if (!email || !pwd ) {
 			res.status(400)
-			return res.json({ message: "Email and password required" });
+			return res.json({ message: "Email and/or password required" });
 		}
 
 		let result = {
@@ -45,7 +45,7 @@ class UserController {
         };
 
 		try {
-			const result = await userService.login(email, password);
+			const data = await userService.login(email, pwd);
 			result.message = "Login successful";
 			result.status = 200;
 			result.data = data;
@@ -58,7 +58,7 @@ class UserController {
 		}
 	}
 
-	async retrieve(req, res) {
+	/* async retrieve(req, res) {
         let result = {
             message: null,
             status: null,
@@ -77,7 +77,7 @@ class UserController {
             return res.json(result);
         }
 
-    }
+    } */
 }
 
 module.exports = UserController;

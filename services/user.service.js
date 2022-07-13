@@ -1,4 +1,4 @@
-const { Customer } = require("../models/user.index");
+const { Customer } = require("../models/index");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 /* const fs = require("fs"); */
@@ -52,7 +52,7 @@ module.exports = {
     if (pwdMatch) {
       const loginData = {
         id: user.id,
-        email: user.email,
+        email: user.email
       };
 
       const token = jwt.sign(loginData, process.env.TOKEN_KEY, {
