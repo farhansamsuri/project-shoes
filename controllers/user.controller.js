@@ -24,7 +24,7 @@ class UserController {
 			result.status = 200;
 			result.data = data;
 		} catch (err) {
-			res.message = error.message;
+			res.message = err.message;
 			res.status = 400;
 		} finally {
 			return res.json(result);
@@ -51,7 +51,7 @@ class UserController {
 			result.data = data;
 
 		} catch (err) {
-			result.message = error.message;
+			result.message = err.message;
 			result.status = 400;
 		} finally {
 			return res.json(result);
